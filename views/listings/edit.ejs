@@ -1,0 +1,43 @@
+<% layout('/layout/boilerplate') -%>
+<body>
+    <h2>Edit Listing</h2>
+    <form action="/listings/<%=listing._id%>?_method=PUT" method="post"
+        class="needs-vaidation" novalidate>
+        <p>Hotel ID is ::<%=listing._id%></p>
+        <div class="row">
+            <div class="col-8 offset-2">
+        <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+      <input type="text" name="title" 
+      class="form-control" 
+      value="<%=listing.title%>"
+      required><br><br>
+     </div>
+     <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+       <textarea  class="form-control" 
+       name="description" 
+       required><%=listing.description%></textarea><br><br>
+   
+    <div class="mb-3">
+        <label for="image" class="form-label">Image URL</label>
+         <input type="text" name="image" class="form-control" value="<%=listing.image%>" required><br><br>
+    </div>
+    <div class="mb-3">
+        <label for="price" class="form-label">Price</label>
+        <input type="number" name="price" class="form-control" value="<%=listing.price%>"  required><br><br>
+    </div>
+    <div class="mb-3">
+        <label for="location" class="form-label">LocationL</label>
+         <input type="text" name="location" class="form-control" value="<%=listing.location%> "  required><br><br>
+    </div>
+    <div class="mb-3">
+        <label for="country" class="form-label">Country</label>
+        <input type="text" name="country" class="form-control" value="<%=listing.country%> "  required><br><br> 
+        </div>
+       <button class="btn btn-dark add-btn">Edit</button>
+       </div>
+       </div>
+       <script src="script.js"></script>
+    </form>
+</body>

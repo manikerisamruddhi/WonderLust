@@ -1,0 +1,30 @@
+<% layout('/layout/boilerplate') -%>
+<body>
+    <h2>List of Hotels</h2>
+    <form action="/listings/new" method="get">
+        <!-- <button>Create New List</button> -->
+    </form>
+    <div class="row row-cols-lg-3">
+    <%for(let listing of allListings) {%>
+        <a href="/listings/<%=listing._id%>" style="text-decoration: none;">
+    <div class="card" style="width: 20rem;">
+        <img class="card-img-top" src="<%=listing.image%>" alt="Card image cap">
+        <div class="card-img-overlay"></div>
+        <div class="card-body">
+          <p class="card-text">
+           <b><%=listing.title%></b> <br>
+           <% if (listing.price) { %>
+            <p> &#8377;<%= listing.price.toLocaleString("en-IN") %>/night</p>
+          <% } else { %>
+            <p>Price not available</p>
+          <% } %>
+    </p>
+        </div>
+      </div>
+    </a>
+      <% }%> 
+    </div>
+    
+</body>
+
+
